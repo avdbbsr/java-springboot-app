@@ -6,24 +6,22 @@ pipeline {
     }
     environment {
         PATH = "/opt/apache-maven-3.9.6/bin:$PATH"
+        scannerHome = tool 'sonar-scanner-meportal'
     }
     stages {
-        stage("build"){
+        stage("Build") {
             steps {
-                echo "build started"
+                echo "Build started"
                 sh 'mvn clean package -Dmaven.test.skip=true'
-                echo "build complted"
+                echo "Build completed"
             }
         }
-    }
-}
-stage('SonarQube analysis') {
-            environment {
-                scannerHome = tool 'sonar-scanner-meportal'
-            }
-            steps{
+        stage('SonarQube analysis') {
+            steps {
                 withSonarQubeEnv('sonar-server-meportal') {
                     sh "${scannerHome}/bin/sonar-scanner"
                 }
             }
         }
+    }
+}
