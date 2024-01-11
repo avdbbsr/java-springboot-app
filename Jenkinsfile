@@ -16,6 +16,14 @@ pipeline {
                 echo "Build completed"
             }
         }
+          stage("test stage"){
+            steps{
+                echo "----------- unit test started ----------"
+                sh 'mvn surefire-report:report'
+                echo "----------- unit test Completed ----------"
+            }
+        }
+      
         stage('SonarQube analysis') {
             steps {
                 withSonarQubeEnv('sonar-server-meportal') {
