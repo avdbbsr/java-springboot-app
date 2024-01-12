@@ -15,8 +15,8 @@ pipeline {
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
                 echo "Build completed"
             }
-        /*}
-          stage("test stage"){
+        }
+          /*stage("test stage"){
             steps{
                 echo "unit test started"
                 sh 'mvn surefire-report:report'  //Rohan
