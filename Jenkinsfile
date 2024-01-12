@@ -70,7 +70,7 @@ pipeline {
             }   
         }
 
-        stages {
+       
         stage("Create Docker Image") {
             steps {
                 script {
@@ -87,11 +87,10 @@ pipeline {
                     echo '---------- Docker Publish Started --------'
                     docker.withRegistry("https://meportall.jfrog.io", 'jfrog-cred') {
                         app.push()
-                        echo '------------ Docker Publish Ended ---------'
                     }
+                    echo '------------ Docker Publish Ended ---------'
                 }
             }
-        }
+         }
     }
-  }
 }
