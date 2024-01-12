@@ -70,12 +70,7 @@ pipeline {
             }   
         }
 
-    }
-}
-pipeline {
-    agent any
-
-    stages {
+        stages {
         stage("Create Docker Image") {
             steps {
                 script {
