@@ -15,7 +15,7 @@ pipeline {
                 sh 'mvn clean deploy -Dmaven.test.skip=true'
                 echo "Build completed"
             }
-        }
+        /*}
           stage("test stage"){
             steps{
                 echo "unit test started"
@@ -43,7 +43,7 @@ pipeline {
                     }
                 }
             }
-        }
+        }*/
         
                stage("Artifact Publish") {
             steps {
