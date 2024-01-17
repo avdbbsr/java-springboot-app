@@ -92,7 +92,7 @@ pipeline {
                 }
             }
          }
-         stage ("Deploy Stage"){
+         stage ("Deploy Stage"){     //Rohan
             steps {
                 script {
                         sh './deploy.sh'
